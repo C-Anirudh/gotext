@@ -4,22 +4,33 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"os"
 )
 
 func main() {
-	textFile := flag.String("f", "", "The name / path of text file to be parsed")
+	textFile := flag.String("f", "", "The name/path of text file to be parsed")
 	flag.Parse()
+
+	if len(*textFile) == 0 {
+		printUsage()
+		os.Exit(1)
+	}
 
 	file, err := ioutil.ReadFile(*textFile)
 	if err != nil {
-		Exit(fmt.Sprintf("Failed to open file '%s'", *textFile))
+		log.Fatal(err)
 	}
 	r := string(file)
-	fmt.Println(r)
+
+	wc := wordCount(r)
+	cc := len(r)
+	fmt.Println("Number of words      : ", wc)
+	fmt.Println("Number of characters : ", cc)
 }
 
-func Exit(msg string) {
-	fmt.Println(msg)
-	os.Exit(1)
+func printUsage() {
+	fmt.Printf("Usage: %s [options]\n", os.Args[0])
+	fmt.Println("Options:")
+	fmt.Println("\t -f\t The name/path of text file to be parsed")
 }

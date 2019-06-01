@@ -1,4 +1,9 @@
-# GoText
+![gitinfo-cover](logo.png)
+
+[![GitHub Watches](https://img.shields.io/github/watchers/C-Anirudh/gotext.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/C-Anirudh/gotext/watchers)
+[![GitHub Starts](https://img.shields.io/github/stars/C-Anirudh/gotext.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/C-Anirudh/gotext/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/C-Anirudh/gotext.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/C-Anirudh/gotext/network)
+
 CLI tool to parse text files and get count of words and characters.
 
 
@@ -23,8 +28,9 @@ $ gotext
 Usage: gotext [options]
 Options:
          -f      The name/path of text file to be parsed
+```
 
-
+```
 $ gotext -f sample.txt
 Number of words      :  6
 Number of characters :  28

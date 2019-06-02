@@ -9,8 +9,8 @@ import (
 )
 
 func main() {
-	wordFile := flag.String("w", "", "The name/path of text file to be parsed for count of words.")
-	charFile := flag.String("c", "", "The name/path of text file to be parsed for count of characters.")
+	wordFile := flag.String("w", "", "absolute path to text file for count of words.")
+	charFile := flag.String("c", "", "absolute path to text file for count of characters.")
 	flag.Parse()
 
 	if *wordFile == "" && *charFile == "" {
@@ -71,6 +71,6 @@ func main() {
 func printUsage() {
 	fmt.Printf("Usage: %s [options]\n", os.Args[0])
 	fmt.Println("Options:")
-	fmt.Println("\t -w\t The name/path of text file to be parsed for count of words.")
-	fmt.Println("\t -c\t The name/path of text file to be parsed for count of characters.")
+	fmt.Println("\t -w\t absolute path to text file for count of words")
+	fmt.Println("\t -c\t absolute path to text file for count of characters")
 }

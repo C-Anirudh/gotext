@@ -9,28 +9,26 @@ import (
 )
 
 func main() {
-	textFile := flag.String("f", "", "The name/path of text file to be parsed")
+	wordFile := flag.String("w", "", "The name/path of text file to be parsed for count of words.")
 	flag.Parse()
 
-	if len(*textFile) == 0 {
+	if *wordFile == "" {
 		printUsage()
 		os.Exit(1)
 	}
 
-	file, err := ioutil.ReadFile(*textFile)
+	file, err := ioutil.ReadFile(*wordFile)
 	if err != nil {
 		log.Fatal(err)
 	}
 	r := string(file)
 
 	wc := wordCount(r)
-	cc := len(r)
-	fmt.Println("Number of words      : ", wc)
-	fmt.Println("Number of characters : ", cc)
+	fmt.Println(wc)
 }
 
 func printUsage() {
 	fmt.Printf("Usage: %s [options]\n", os.Args[0])
 	fmt.Println("Options:")
-	fmt.Println("\t -f\t The name/path of text file to be parsed")
+	fmt.Println("\t -w\t The name/path of text file to be parsed for count of words.")
 }
